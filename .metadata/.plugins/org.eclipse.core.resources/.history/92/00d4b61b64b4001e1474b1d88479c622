@@ -1,0 +1,11 @@
+package com.deloitte.dto;
+
+import com.deloitte.entity.Employee;
+
+public class EmployeeProjectDepartmentResponse {
+
+	private Employee employee;
+	private Project project;
+	private Department department;
+	
+}

@@ -1,0 +1,5 @@
+spring.application.name=SPRING-CONFIG
+server.port=8085
+
+spring.cloud.config.server.git.uri=https://github.com/ArmanAli-cmd/p7-banking-repo.git
+spring.cloud.config.server.git.clone-on-start=true

@@ -1,0 +1,13 @@
+package com.deloitte.dto;
+
+import java.util.List;
+
+import com.deloitte.entity.Project;
+
+public class ProjectEmployeeResponse {
+
+	private Project project;
+	private List<Employee> employees;
+	
+	
+}

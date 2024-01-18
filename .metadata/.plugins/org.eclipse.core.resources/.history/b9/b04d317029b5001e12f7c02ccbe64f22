@@ -1,0 +1,24 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Employee Sign Up Page</title>
+</head>
+<body style="text-align: center;">
+<h3>Register new employee</h3>
+<form action="/employees/add" method="post">
+Name: <input type="text" name="name" placeholder="Enter employee name" required><br><br>
+Email: <input type="email" name="email" placeholder="Enter employee email" required><br><br>
+Designation: <input type="text" name="designation" placeholder="Enter employee designation" required><br><br>
+Salary: <input type="text" name="salary" placeholder="Enter employee salary" required="required"><br><br>
+Date of Joining: <input type="text" name="doj" placeholder="Enter employee date of joining" required><br><br>
+Password: <input type="password" name="password" placeholder="Enter employee password" required><br><br>
+Department Id: <input type="number" name="dId" placeholder="Enter department id" required><br><br>
+Project Id: <input type="number" name="pId" placeholder="Enter project id" required><br><br>
+<input type="submit" name="Register">
+</form>
+
+</body>
+</html>

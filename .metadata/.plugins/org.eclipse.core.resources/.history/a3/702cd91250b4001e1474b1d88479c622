@@ -1,0 +1,40 @@
+package com.deloitte.service;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.deloitte.entity.Department;
+import com.deloitte.repository.DepartmentRepository;
+
+@Service
+public class DepartmentServiceImpl implements DepartmentService{
+
+	@Autowired
+	DepartmentRepository repository;
+	
+	@Override
+	public Department addOrUpdate(Department project) {
+		// TODO Auto-generated method stub
+		return repository.save(project);
+		//return null;
+	}
+
+	@Override
+	public Department searchById(long id) {
+		// TODO Auto-generated method stub
+		//return null;
+		//return repository.findById(id).orElse(new Employee());
+		//return repository.findById(id).get();
+		//return repository.findById(id).orElseGet(()->new Employee());
+		return repository.findById(id).orElse(null);
+	}
+
+	@Override
+	public List<Department> viewAll() {
+		// TODO Auto-generated method stub
+		return repository.findAll();
+	}
+
+}

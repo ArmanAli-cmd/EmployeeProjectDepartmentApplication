@@ -1,0 +1,30 @@
+package com.deloitte.client;
+
+import java.util.List;
+
+import org.springframework.cloud.openfeign.FeignClient;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+
+import com.deloitte.dto.Employee;
+import com.deloitte.dto.EmployeeProjectDepartmentResponse;
+
+@FeignClient(name = "EMPLOYEE-SERVICE")
+public interface EmployeeFeign {
+
+	
+	@GetMapping("/employees")
+	public List<Employee> getAllEmployees();
+	
+	@GetMapping("/employees/department/{departmentId}/employees")
+	public List<Employee> GetAllEmployeesByDepartmentId(@PathVariable long departmentId);
+	
+	@PostMapping("/employees/add")
+	public ResponseEntity<?> register(@RequestBody Employee employee);
+	
+	@GetMapping("/employees/employee-details/{id}")
+	public EmployeeProjectDepartmentResponse getEmployeeDetails(@PathVariable long id);
+}

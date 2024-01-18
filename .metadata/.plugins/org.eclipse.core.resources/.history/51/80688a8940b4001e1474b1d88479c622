@@ -1,0 +1,58 @@
+package com.deloitte.service;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.deloitte.entity.Employee;
+import com.deloitte.repository.EmployeeRepository;
+
+@Service
+public class EmployeeServiceImpl implements EmployeeService{
+
+	@Autowired
+	EmployeeRepository repository;
+	
+	@Override
+	public Employee addOrUpdate(Employee employee) {
+		// TODO Auto-generated method stub
+		return repository.save(employee);
+		//return null;
+	}
+
+	@Override
+	public Employee searchById(long id) {
+		// TODO Auto-generated method stub
+		//return null;
+		//return repository.findById(id).orElse(new Employee());
+		//return repository.findById(id).get();
+		//return repository.findById(id).orElseGet(()->new Employee());
+		return repository.findById(id).orElse(null);
+	}
+
+	@Override
+	public List<Employee> viewAll() {
+		// TODO Auto-generated method stub
+		return repository.findAll();
+	}
+
+	@Override
+	public Employee getEmployeeByEmail(String email) {
+		// TODO Auto-generated method stub
+		return repository.findByEmail(email);
+	}
+
+	@Override
+	public Employee getEmployeeByEmailAndPassword(String email, String password) {
+		// TODO Auto-generated method stub
+		return repository.findByEmailAndPassword(email, password);
+	}
+
+	@Override
+	public void deleteEmployee(long id) {
+		// TODO Auto-generated method stub
+		repository.deleteById(id);
+	}
+
+}

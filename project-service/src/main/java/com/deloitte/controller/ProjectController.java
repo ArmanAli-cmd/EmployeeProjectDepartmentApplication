@@ -1,0 +1,55 @@
+package com.deloitte.controller;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.deloitte.client.EmployeeFeign;
+import com.deloitte.dto.Employee;
+import com.deloitte.dto.ProjectEmployeeResponse;
+import com.deloitte.entity.Project;
+import com.deloitte.service.ProjectService;
+
+@RestController
+@RequestMapping("/projects")
+public class ProjectController {
+
+	@Autowired
+	private ProjectService service;
+	@Autowired
+	private EmployeeFeign employeeFeign;
+	
+	@PostMapping("add")
+	public Project addProject(@RequestBody Project project) {
+		return service.addOrUpdate(project);
+	}
+	
+	@GetMapping("{id}")
+	public Project getById(@PathVariable long id) {
+		return service.searchById(id);
+	}
+	
+	@GetMapping("")
+	public List<Project> getAllProjects(){
+		return service.viewAll();
+	}
+	
+	@GetMapping("{id}/project-details")
+	public ResponseEntity<?> getProjectEmployeesDetailsByProjectId(@PathVariable long id){
+		Project project = service.searchById(id);
+		if(project!=null) {
+			List<Employee> employees = employeeFeign.GetAllEmployeesByProjectId(id);
+			return ResponseEntity.status(HttpStatus.OK).body(new ProjectEmployeeResponse(project, employees));
+		}
+		return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Project does not exist.");
+	}
+	
+}

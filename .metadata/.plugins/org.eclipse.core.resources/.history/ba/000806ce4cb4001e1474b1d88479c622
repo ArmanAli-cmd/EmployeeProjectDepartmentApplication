@@ -1,0 +1,46 @@
+package com.deloitte.service;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.deloitte.entity.Project;
+import com.deloitte.repository.EmployeeRepository;
+
+@Service
+public class EmployeeServiceImpl implements EmployeeService{
+
+	@Autowired
+	EmployeeRepository repository;
+	
+	@Override
+	public Project addOrUpdate(Project employee) {
+		// TODO Auto-generated method stub
+		return repository.save(employee);
+		//return null;
+	}
+
+	@Override
+	public Project searchById(long id) {
+		// TODO Auto-generated method stub
+		//return null;
+		//return repository.findById(id).orElse(new Employee());
+		//return repository.findById(id).get();
+		//return repository.findById(id).orElseGet(()->new Employee());
+		return repository.findById(id).orElse(null);
+	}
+
+	@Override
+	public List<Project> viewAll() {
+		// TODO Auto-generated method stub
+		return repository.findAll();
+	}
+
+	@Override
+	public Project getEmployeeByEmail(String email) {
+		// TODO Auto-generated method stub
+		return repository.findByEmail(email);
+	}
+
+}

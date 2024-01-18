@@ -1,0 +1,24 @@
+package com.deloitte.client;
+
+import java.util.List;
+
+import org.springframework.cloud.openfeign.FeignClient;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+
+import com.deloitte.dto.Project;
+
+@FeignClient(name = "PROJECT-SERVICE")
+public interface ProJectFeign {
+	
+	@PostMapping("/projects/add")
+	public Project addProject(@RequestBody Project project);
+
+	@GetMapping("/projects/{id}")
+	public Project getProjectById(@PathVariable long id);
+	
+	@GetMapping("/projects")
+	public List<Project> getAllProjects();
+}

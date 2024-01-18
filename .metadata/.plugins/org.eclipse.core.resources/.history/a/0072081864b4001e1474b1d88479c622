@@ -1,0 +1,6 @@
+package com.deloitte.dto;
+
+public class EmployeeProjectDepartmentResponse {
+
+	
+}

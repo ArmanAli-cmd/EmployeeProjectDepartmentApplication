@@ -1,0 +1,9 @@
+package com.deloitte.client;
+
+import org.springframework.cloud.openfeign.FeignClient;
+
+@FeignClient(name = "DEPARTMENT-SERVICE")
+public interface DepartmentFeign {
+
+	
+}

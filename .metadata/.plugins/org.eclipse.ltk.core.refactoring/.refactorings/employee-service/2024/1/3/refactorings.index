@@ -1,0 +1,22 @@
+1705389644982	Encapsulate field 'departmentId'
+1705389793410	Rename package 'controller'
+1705389965298	Rename package 'repository'
+1705389977363	Rename package 'service'
+1705395137858	Copy package
+1705395147963	Copy package
+1705395156677	Copy package
+1705395171271	Copy package
+1705397320577	Encapsulate field 'projectId'
+1705405172726	Delete element
+1705405254994	Encapsulate field 'employee'
+1705405262228	Encapsulate field 'project'
+1705405266758	Encapsulate field 'department'
+1705406849018	Encapsulate field 'projects'
+1705428471332	Encapsulate field 'project'
+1705428570585	Encapsulate field 'projectId'
+1705481811018	Copy package
+1705481922916	Copy compilation unit
+1705481939692	Copy compilation unit
+1705483610670	Copy package
+1705490522889	Copy package
+1705514412249	Copy compilation unit

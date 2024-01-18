@@ -1,0 +1,18 @@
+package com.deloitte.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.deloitte.client.DepartmentFeign;
+
+@Controller
+@RequestMapping("departments")
+public class DepartmentController {
+
+	@Autowired
+	DepartmentFeign departmentFeign;
+	
+	@RequestMapping("")
+	public 
+}

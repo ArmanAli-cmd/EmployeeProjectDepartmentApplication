@@ -1,0 +1,13 @@
+package com.deloitte.service;
+
+import java.util.List;
+
+import com.deloitte.entity.Department;
+
+public interface ProjectService {
+
+	Department addOrUpdate(Department project);
+	Department searchById(long id);
+	List<Department> viewAll();
+	
+}

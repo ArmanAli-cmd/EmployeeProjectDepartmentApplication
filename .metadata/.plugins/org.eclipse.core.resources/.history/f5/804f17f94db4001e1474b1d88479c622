@@ -1,0 +1,14 @@
+package com.deloitte.service;
+
+import java.util.List;
+
+import com.deloitte.entity.Project;
+
+public interface ProjectService {
+
+	Project addOrUpdate(Project employee);
+	Project searchById(long id);
+	List<Project> viewAll();
+	Project getEmployeeByEmail(String email);
+	
+}
